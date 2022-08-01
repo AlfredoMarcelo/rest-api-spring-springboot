@@ -23,4 +23,20 @@ public class StudentServiceImpl implements StudentService{
     return studentRepository.findAll();
   }
 
+  @Override
+  public Student getStudentByEmailId(String emailId) {
+    return studentRepository.findByEmailId(emailId);
+  }
+
+  @Override
+  public String deleteStudent(Long studentId) {
+    studentRepository.deleteById(studentId);
+    return "Student deleted with StudentId: " + studentId;
+  }
+
+  @Override
+  public Student updateStudent(Student student) {
+    return studentRepository.save(student);
+  }
+
 }

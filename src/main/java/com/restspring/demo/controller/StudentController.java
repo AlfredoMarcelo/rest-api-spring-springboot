@@ -14,13 +14,29 @@ public class StudentController {
   @Autowired
   private StudentService studentService;
 
-  @PostMapping
+  @PostMapping      // new student
   public Student addStudent(@RequestBody Student student){
     return  studentService.addStudent(student);
   }
 
-  @GetMapping
+  @GetMapping       //get all student
   public List<Student> getAllStudent(){
     return studentService.getAllStudent();
   }
+
+  @GetMapping("/{emailId}")   // get a student for emailId
+  public Student getStudentByEmailId(@PathVariable String emailId){
+    return studentService.getStudentByEmailId(emailId);
+  }
+
+  @DeleteMapping("/{studentId}")                                // para borrar se pide un id
+  public String deleteStudent(@PathVariable Long studentId){
+    return studentService.deleteStudent(studentId);
+  }
+
+  @PutMapping()
+  public Student updateStudent(@RequestBody Student student){   //en put se solicita un obj student para actualizar
+    return studentService.updateStudent(student);
+  }
+
 }

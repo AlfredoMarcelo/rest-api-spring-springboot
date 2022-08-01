@@ -8,4 +8,10 @@ public interface StudentService {
   Student addStudent(Student student);
 
   List<Student> getAllStudent();
+
+  Student getStudentByEmailId(String emailId);
+
+  String deleteStudent(Long studentId);
+
+  Student updateStudent(Student student);
 }

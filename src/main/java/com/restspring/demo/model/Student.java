@@ -7,8 +7,9 @@ import javax.persistence.*;
 @Data
 @Entity
 @Table(
-        name= "tbl_student",
+        name= "tbl_students",
         uniqueConstraints = @UniqueConstraint(
+                name= "email_unique",
                 columnNames = "email_id"
         )
 )
@@ -21,10 +22,10 @@ public class Student {
           allocationSize = 1
   )
   @GeneratedValue(
-          generator = "student_sequence",
-          strategy = GenerationType.SEQUENCE
+          strategy = GenerationType.SEQUENCE,
+          generator = "student_sequence"
   )
-  private Long id;
+  private Long studentId;
   private String firstName;
   private String lastName;
   @Column(
